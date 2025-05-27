@@ -26,6 +26,11 @@ def main():
         for sprite in drawable:
             sprite.draw(screen)
         updatable.update(dt)
+        for asteroid in asteroids:
+            if asteroid.colliding(player):
+                print("Game Over!")
+                exit()
+
         pygame.display.flip()
         
         dt = fps_clock.tick(60) / 1000
